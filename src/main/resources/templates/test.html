@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<form action="#" th:action="@{/editpersons}" method="post" th:object="${form}">
+    <th:block th:each="person, personStat : ${form.personList}">
+
+        Name:
+        <input type="text" th:field="${form.personList[__${personStat.index}__].name}" />
+        </br></br>
+
+        Age:
+        <input type="text" th:field="${form.personList[__${personStat.index}__].age}" />
+        </br></br>
+
+    </th:block>
+    </br></br>
+    <input type="submit" name="btnSaveEdit" value="Save"/>
+</form>
