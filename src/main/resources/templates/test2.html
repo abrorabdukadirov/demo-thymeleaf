@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+
+<form th:method="POST" th:action="@{/tasks/approve}" th:object="${form}">
+    <table>
+     <tr th:each="person, personStat : ${form.personList}">
+         <td>
+             <span th:text="${personStat.index+1}"> counter</span>
+         </td>
+         <td>
+             <input type="text" th:field="${form.personList[__${personStat.index}__].name}"/>
+         </td>
+     </tr>
+    </table>
+
+    <br/>
+
+    <input
+            type="text"
+            value="Total result: "
+            name="action"
+            class="button-result button-orange"
+    >
+    <div class="buttons">
+        <input type="submit"
+               value="Approve"
+               name="action"
+               class="button-appr button-appr1">
+<!--        <input type="submit"-->
+<!--               value="Decline"-->
+<!--               name="action"-->
+<!--               class="button-appr">-->
+    </div>
+</form>
